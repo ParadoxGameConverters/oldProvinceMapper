@@ -488,7 +488,6 @@ namespace ProvinceMapper
 
 		private void createNewMapping()
 		{
-			// create new mapping
 			if (lbMappingsDict[mappingsTabs.SelectedTab.Text].SelectedIndex >= 0)
 			{
 				CreateNewMapping(false, lbMappingsDict[mappingsTabs.SelectedTab.Text].SelectedIndex);
@@ -526,16 +525,13 @@ namespace ProvinceMapper
 			{
 				delete();
 			}
-			else if (e.Control)
+			else if ((e.KeyCode == Keys.Oemplus) || (e.KeyCode == Keys.Add))
 			{
-				if (e.KeyCode == Keys.Oemplus)
-				{
-					tbMoveUp_Click(sender, e);
-				}
-				else if (e.KeyCode == Keys.OemMinus)
-				{
-					tbMoveDown_Click(sender, e);
-				}
+				tbMoveUp_Click(sender, e);
+			}
+			else if ((e.KeyCode == Keys.OemMinus) || (e.KeyCode == Keys.Subtract))
+			{
+				tbMoveDown_Click(sender, e);
 			}
 		}
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
