@@ -8,127 +8,158 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProvinceMapper.Properties {
-    
-    
-    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Victoria 2\\map")]
-        public string srcMapFolder {
-            get {
-                return ((string)(this["srcMapFolder"]));
-            }
-            set {
-                this["srcMapFolder"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Hearts of Iron III\\map")]
-        public string destMapFolder {
-            get {
-                return ((string)(this["destMapFolder"]));
-            }
-            set {
-                this["destMapFolder"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("vic")]
-        public string srcTag {
-            get {
-                return ((string)(this["srcTag"]));
-            }
-            set {
-                this["srcTag"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hoi")]
-        public string destTag {
-            get {
-                return ((string)(this["destTag"]));
-            }
-            set {
-                this["destTag"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("province_mappings.txt")]
-        public string mappingFile {
-            get {
-                return ((string)(this["mappingFile"]));
-            }
-            set {
-                this["mappingFile"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool fitMaps {
-            get {
-                return ((bool)(this["fitMaps"]));
-            }
-            set {
-                this["fitMaps"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Localization")]
-        public string namesFrom {
-            get {
-                return ((string)(this["namesFrom"]));
-            }
-            set {
-                this["namesFrom"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool invertSource {
-            get {
-                return ((bool)(this["invertSource"]));
-            }
-            set {
-                this["invertSource"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool invertDest {
-            get {
-                return ((bool)(this["invertDest"]));
-            }
-            set {
-                this["invertDest"] = value;
-            }
-        }
-    }
+namespace ProvinceMapper.Properties
+{
+
+
+	[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+	internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
+	{
+
+		private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+
+		public static Settings Default
+		{
+			get
+			{
+				return defaultInstance;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("D:\\Victoria 2\\map")]
+		public string srcMapFolder
+		{
+			get
+			{
+				return ((string)(this["srcMapFolder"]));
+			}
+			set
+			{
+				this["srcMapFolder"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("D:\\Hearts of Iron III\\map")]
+		public string destMapFolder
+		{
+			get
+			{
+				return ((string)(this["destMapFolder"]));
+			}
+			set
+			{
+				this["destMapFolder"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("vic")]
+		public string srcTag
+		{
+			get
+			{
+				return ((string)(this["srcTag"]));
+			}
+			set
+			{
+				this["srcTag"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("hoi")]
+		public string destTag
+		{
+			get
+			{
+				return ((string)(this["destTag"]));
+			}
+			set
+			{
+				this["destTag"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("province_mappings.txt")]
+		public string mappingFile
+		{
+			get
+			{
+				return ((string)(this["mappingFile"]));
+			}
+			set
+			{
+				this["mappingFile"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("True")]
+		public bool fitMaps
+		{
+			get
+			{
+				return ((bool)(this["fitMaps"]));
+			}
+			set
+			{
+				this["fitMaps"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("Localization")]
+		public string namesFrom
+		{
+			get
+			{
+				return ((string)(this["namesFrom"]));
+			}
+			set
+			{
+				this["namesFrom"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("True")]
+		public bool invertSource
+		{
+			get
+			{
+				return ((bool)(this["invertSource"]));
+			}
+			set
+			{
+				this["invertSource"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("True")]
+		public bool invertDest
+		{
+			get
+			{
+				return ((bool)(this["invertDest"]));
+			}
+			set
+			{
+				this["invertDest"] = value;
+			}
+		}
+	}
 }
