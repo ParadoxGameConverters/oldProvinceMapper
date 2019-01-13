@@ -18,7 +18,9 @@ namespace ProvinceMapper
 			Application.SetCompatibleTextRenderingDefault(false);
 			LaunchForm lf = new LaunchForm();
 			if (lf.ShowDialog() == DialogResult.OK)
+			{
 				Application.Run(new Form1());
+			}
 		}
 
 		static public Bitmap CleanResizeBitmap(Bitmap input, int w, int h)

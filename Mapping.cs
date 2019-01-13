@@ -83,9 +83,13 @@ namespace ProvinceMapper
 										 return p.ID == provID;
 									 });
 								if (prov == null)
+								{
 									throw new Exception(String.Format("Province \"{0}\" appears in a mapping, but not in game data!", prov.ToString()));
+								}
 								if (prov.mappings.ContainsKey(currentMapping))
+								{
 									throw new Exception(String.Format("Province \"{0}\" appears in more than one mapping!", prov.ToString()));
+								}
 								prov.mappings.Add(currentMapping, this);
 								destProvs.Add(prov);
 								break;
@@ -129,7 +133,9 @@ namespace ProvinceMapper
 		public virtual string ToOutputString(string srcTag, string destTag)
 		{
 			if (srcProvs.Count == 0 && destProvs.Count == 0)
+			{
 				return "";
+			}
 			string retval = String.Empty;
 			retval += "\tlink = { ";
 			foreach (Province p in srcProvs)
@@ -146,12 +152,18 @@ namespace ProvinceMapper
 			}
 			retval += "}\t# ";
 			if (isManyToMany())
+			{
 				retval += "MANY-TO-MANY: ";
+			}
 			if (srcProvs.Count == 0)
+			{
 				retval += "NOTHING";
+			}
 			retval += this.ToString();
 			if (destProvs.Count == 0)
+			{
 				retval += "DROPPED";
+			}
 			return retval;
 		}
 
@@ -183,7 +195,9 @@ namespace ProvinceMapper
 		public CommentMapping(string line)
 		{
 			if (line == String.Empty)
+			{
 				commentLine = String.Empty;
+			}
 
 			string tmpStr = line.Remove(0, 1);
 			commentLine = tmpStr.Trim();
