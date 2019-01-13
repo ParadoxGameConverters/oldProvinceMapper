@@ -130,7 +130,9 @@ namespace ProvinceMapper
 			{
 				// ProgressBar updates much more reliably going backwards
 				if (actualAmt < 100)
+				{
 					progressBar1.Value = actualAmt + 1;
+				}
 				progressBar1.Value = actualAmt;
 				Application.DoEvents();
 			}

@@ -19,9 +19,13 @@ namespace ProvinceMapper
 			ID = int.Parse(row[0]);
 			rgb = Color.FromArgb((int)double.Parse(row[1]), (int)double.Parse(row[2]), (int)double.Parse(row[3]));
 			if (row.Count() > 4)
+			{
 				name = row[4];
+			}
 			else
+			{
 				name = String.Format("Unnamed {0}", ID);
+			}
 
 			mappings = new Dictionary<string, Mapping>();
 		}
@@ -139,7 +143,9 @@ namespace ProvinceMapper
 								int andAlpha = bmp.GetPixel(x - 1, y).alpha & bmp.GetPixel(x + 1, y).alpha
 									 & bmp.GetPixel(x, y - 1).alpha & bmp.GetPixel(x, y + 1).alpha;
 								if (andAlpha == 0)
+								{
 									bmp.SetPixel(x, y, province);
+								}
 							}
 						}
 					}

@@ -226,9 +226,13 @@ namespace ProvinceMapper
 				else
 				{
 					if (newSelection.Count > 0)
+					{
 						invalidRect = Program.ScaleRect(newSelection[0].Rect, scaleFactor);
+					}
 					else if (oldSelection.Count > 0)
+					{
 						invalidRect = Program.ScaleRect(oldSelection[0].Rect, scaleFactor);
+					}
 					foreach (Province p in newSelection)
 					{
 						invalidRect = Rectangle.Union(invalidRect, Program.ScaleRect(p.Rect, scaleFactor));
@@ -264,7 +268,9 @@ namespace ProvinceMapper
 				{
 					Rectangle scaledRect = Program.ScaleRect(p.Rect, scaleFactor);
 					if (Rectangle.Intersect(scaledRect, invalidRect) != Rectangle.Empty)
+					{
 						g.DrawImage(p.SelectionMask, scaledRect);
+					}
 				}
 				pb.Invalidate(invalidRect);
 
@@ -300,7 +306,9 @@ namespace ProvinceMapper
 			}
 
 			if (!skipSelPBRedraw)
+			{
 				createSelPBs(false);
+			}
 		}
 
 		private void CreateNewMapping(bool comment, int location)
@@ -425,9 +433,13 @@ namespace ProvinceMapper
 				scaleFactor = float.Parse(cbZoom.SelectedItem.ToString().TrimEnd('x'));
 			}
 			if (pbSource.BackgroundImage != null)
+			{
 				pbSource.BackgroundImage.Dispose();
+			}
 			if (pbSource.Image != null)
+			{
 				pbSource.Image.Dispose();
+			}
 
 			Point sourceScroll = HorizontalSplit.Panel1.AutoScrollPosition;
 			pbSource.BackgroundImage = bmpSrc = Program.CleanResizeBitmap(Program.sourceMap.map,
@@ -442,9 +454,13 @@ namespace ProvinceMapper
 			HorizontalSplit.Panel1.AutoScrollPosition = sourceScroll;
 
 			if (pbTarget.BackgroundImage != null)
+			{
 				pbTarget.BackgroundImage.Dispose();
+			}
 			if (pbTarget.Image != null)
+			{
 				pbTarget.Image.Dispose();
+			}
 
 			Point destScroll = HorizontalSplit.Panel2.AutoScrollPosition;
 			pbTarget.BackgroundImage = bmpDest = Program.CleanResizeBitmap(Program.targetMap.map,
