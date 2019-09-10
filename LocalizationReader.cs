@@ -48,7 +48,7 @@ namespace ProvinceMapper
 						{
 							if (p.ID == provNum)
 							{
-								p.name = locTokens[1].Trim().Trim('\"');
+                                p.name = locTokens[1].Split('\"')[1];
 								break;
 							}
 						}
