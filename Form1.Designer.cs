@@ -234,7 +234,7 @@
             this.cbZoomSource.Name = "cbZoomSource";
             this.cbZoomSource.Size = new System.Drawing.Size(40, 23);
             this.cbZoomSource.ToolTipText = "Source Zoom Factor";
-            this.cbZoomSource.SelectedIndexChanged += new System.EventHandler(this.cbZoom_SelectedIndexChanged);
+            this.cbZoomSource.SelectedIndexChanged += new System.EventHandler(this.cbZoomSource_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -424,6 +424,7 @@
             this.cbZoomDest.Name = "cbZoomDest";
             this.cbZoomDest.Size = new System.Drawing.Size(40, 23);
             this.cbZoomDest.ToolTipText = "Destination Zoom Factor";
+            this.cbZoomDest.SelectedIndexChanged += new System.EventHandler(this.cbZoomDest_SelectedIndexChanged);
             // 
             // Form1
             // 
