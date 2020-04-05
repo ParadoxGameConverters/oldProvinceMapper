@@ -66,7 +66,7 @@
             this.tbSourceMapFolder.Name = "tbSourceMapFolder";
             this.tbSourceMapFolder.Size = new System.Drawing.Size(156, 20);
             this.tbSourceMapFolder.TabIndex = 1;
-            this.tbSourceMapFolder.Text = "D:\\Europa Universalis III\\map";
+            this.tbSourceMapFolder.Text = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Crusader Kings II\\map";
             // 
             // tbDestMapFolder
             // 
@@ -76,7 +76,7 @@
             this.tbDestMapFolder.Name = "tbDestMapFolder";
             this.tbDestMapFolder.Size = new System.Drawing.Size(156, 20);
             this.tbDestMapFolder.TabIndex = 3;
-            this.tbDestMapFolder.Text = "D:\\Victoria 2\\map";
+            this.tbDestMapFolder.Text = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Europa Universalis IV\\map";
             // 
             // label2
             // 
@@ -162,7 +162,8 @@
             this.tbMappingsFile.Name = "tbMappingsFile";
             this.tbMappingsFile.Size = new System.Drawing.Size(156, 20);
             this.tbMappingsFile.TabIndex = 11;
-            this.tbMappingsFile.Text = "province_mappings.txt";
+            this.tbMappingsFile.Text = "C:\\MyProjects\\paradoxGameConvertersForks\\CK2ToEU4\\CK2ToEU4\\Data_Files\\configurabl" +
+    "es\\provinces.txt";
             // 
             // progressBar1
             // 
