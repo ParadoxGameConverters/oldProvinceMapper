@@ -118,10 +118,10 @@
             // mappingsTabs
             // 
             this.mappingsTabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mappingsTabs.Location = new System.Drawing.Point(0, 51);
+            this.mappingsTabs.Location = new System.Drawing.Point(0, 49);
             this.mappingsTabs.Name = "mappingsTabs";
             this.mappingsTabs.SelectedIndex = 0;
-            this.mappingsTabs.Size = new System.Drawing.Size(272, 710);
+            this.mappingsTabs.Size = new System.Drawing.Size(272, 712);
             this.mappingsTabs.TabIndex = 2;
             // 
             // toolStrip1
@@ -139,7 +139,7 @@
             this.cbZoom});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(272, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(272, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -149,14 +149,14 @@
             this.tbSave.Image = ((System.Drawing.Image)(resources.GetObject("tbSave.Image")));
             this.tbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbSave.Name = "tbSave";
-            this.tbSave.Size = new System.Drawing.Size(23, 24);
+            this.tbSave.Size = new System.Drawing.Size(23, 22);
             this.tbSave.Text = "Save Mappings";
             this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tbMoveUp
             // 
@@ -164,7 +164,7 @@
             this.tbMoveUp.Image = ((System.Drawing.Image)(resources.GetObject("tbMoveUp.Image")));
             this.tbMoveUp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbMoveUp.Name = "tbMoveUp";
-            this.tbMoveUp.Size = new System.Drawing.Size(23, 24);
+            this.tbMoveUp.Size = new System.Drawing.Size(23, 22);
             this.tbMoveUp.Text = "Move Up";
             this.tbMoveUp.Click += new System.EventHandler(this.tbMoveUp_Click);
             // 
@@ -174,14 +174,14 @@
             this.tbMoveDown.Image = ((System.Drawing.Image)(resources.GetObject("tbMoveDown.Image")));
             this.tbMoveDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbMoveDown.Name = "tbMoveDown";
-            this.tbMoveDown.Size = new System.Drawing.Size(23, 24);
+            this.tbMoveDown.Size = new System.Drawing.Size(23, 22);
             this.tbMoveDown.Text = "Move Down";
             this.tbMoveDown.Click += new System.EventHandler(this.tbMoveDown_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // tbSelection
             // 
@@ -189,7 +189,7 @@
             this.tbSelection.Image = ((System.Drawing.Image)(resources.GetObject("tbSelection.Image")));
             this.tbSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbSelection.Name = "tbSelection";
-            this.tbSelection.Size = new System.Drawing.Size(23, 24);
+            this.tbSelection.Size = new System.Drawing.Size(23, 22);
             this.tbSelection.Text = "Selection Mode";
             this.tbSelection.Click += new System.EventHandler(this.tbSelection_Click);
             // 
@@ -199,7 +199,7 @@
             this.tbUnmapped.Image = ((System.Drawing.Image)(resources.GetObject("tbUnmapped.Image")));
             this.tbUnmapped.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbUnmapped.Name = "tbUnmapped";
-            this.tbUnmapped.Size = new System.Drawing.Size(23, 20);
+            this.tbUnmapped.Size = new System.Drawing.Size(23, 22);
             this.tbUnmapped.Text = "Show Unmapped";
             this.tbUnmapped.Click += new System.EventHandler(this.tbUnmapped_Click);
             // 
@@ -209,7 +209,7 @@
             this.tbFitSelection.Image = ((System.Drawing.Image)(resources.GetObject("tbFitSelection.Image")));
             this.tbFitSelection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbFitSelection.Name = "tbFitSelection";
-            this.tbFitSelection.Size = new System.Drawing.Size(23, 20);
+            this.tbFitSelection.Size = new System.Drawing.Size(23, 22);
             this.tbFitSelection.Text = "Fit Selection";
             this.tbFitSelection.Click += new System.EventHandler(this.tbFitSelection_Click);
             // 
@@ -258,14 +258,14 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -372,7 +372,7 @@
             this.HorizontalSplit.Panel2.AutoScroll = true;
             this.HorizontalSplit.Panel2.Controls.Add(this.pbTarget);
             this.HorizontalSplit.Size = new System.Drawing.Size(988, 761);
-            this.HorizontalSplit.SplitterDistance = 279;
+            this.HorizontalSplit.SplitterDistance = 378;
             this.HorizontalSplit.TabIndex = 0;
             // 
             // pbSource
