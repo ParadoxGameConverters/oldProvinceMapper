@@ -98,23 +98,19 @@
             // 
             // tbSourceTag
             // 
-            this.tbSourceTag.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSourceTag.Location = new System.Drawing.Point(116, 62);
             this.tbSourceTag.Name = "tbSourceTag";
-            this.tbSourceTag.Size = new System.Drawing.Size(100, 20);
+            this.tbSourceTag.Size = new System.Drawing.Size(45, 20);
             this.tbSourceTag.TabIndex = 5;
-            this.tbSourceTag.Text = "eu3";
+            this.tbSourceTag.Text = "ck2";
             // 
             // tbDestTag
             // 
-            this.tbDestTag.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDestTag.Location = new System.Drawing.Point(116, 88);
             this.tbDestTag.Name = "tbDestTag";
-            this.tbDestTag.Size = new System.Drawing.Size(100, 20);
+            this.tbDestTag.Size = new System.Drawing.Size(45, 20);
             this.tbDestTag.TabIndex = 7;
-            this.tbDestTag.Text = "vic";
+            this.tbDestTag.Text = "eu4";
             // 
             // label4
             // 
