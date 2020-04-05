@@ -7,7 +7,7 @@ build_script:
     msbuild ProvinceMapper.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 artifacts:
-- path: Release
+- path: bin/Release
   name: autobuild
 deploy:
 - provider: GitHub
