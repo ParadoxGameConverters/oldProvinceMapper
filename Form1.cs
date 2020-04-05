@@ -41,7 +41,8 @@ namespace ProvinceMapper
 			}
 
 			// force rescale/redraw
-			cbZoom.SelectedIndex = 0;
+			cbZoomSource.SelectedIndex = 0;
+			cbZoomDest.SelectedIndex = 0;
 
 			// get the different mapping listings
 			lbMappingsDict = new Dictionary<string, System.Windows.Forms.ListBox>();
@@ -428,9 +429,9 @@ namespace ProvinceMapper
 		private void cbZoom_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			float oldScaleFactor = scaleFactor;
-			if (cbZoom.SelectedItem != null)
+			if (cbZoomSource.SelectedItem != null)
 			{
-				scaleFactor = float.Parse(cbZoom.SelectedItem.ToString().TrimEnd('x'));
+				scaleFactor = float.Parse(cbZoomSource.SelectedItem.ToString().TrimEnd('x'));
 			}
 			if (pbSource.BackgroundImage != null)
 			{
