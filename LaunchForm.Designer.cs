@@ -64,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSourceMapFolder.Location = new System.Drawing.Point(116, 9);
             this.tbSourceMapFolder.Name = "tbSourceMapFolder";
-            this.tbSourceMapFolder.Size = new System.Drawing.Size(156, 20);
+            this.tbSourceMapFolder.Size = new System.Drawing.Size(534, 20);
             this.tbSourceMapFolder.TabIndex = 1;
             this.tbSourceMapFolder.Text = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Crusader Kings II\\map";
             // 
@@ -74,7 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDestMapFolder.Location = new System.Drawing.Point(116, 35);
             this.tbDestMapFolder.Name = "tbDestMapFolder";
-            this.tbDestMapFolder.Size = new System.Drawing.Size(156, 20);
+            this.tbDestMapFolder.Size = new System.Drawing.Size(534, 20);
             this.tbDestMapFolder.TabIndex = 3;
             this.tbDestMapFolder.Text = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Europa Universalis IV\\map";
             // 
@@ -125,7 +125,7 @@
             // 
             this.btnBegin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBegin.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnBegin.Location = new System.Drawing.Point(265, 220);
+            this.btnBegin.Location = new System.Drawing.Point(643, 298);
             this.btnBegin.Name = "btnBegin";
             this.btnBegin.Size = new System.Drawing.Size(61, 23);
             this.btnBegin.TabIndex = 8;
@@ -137,7 +137,7 @@
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(12, 220);
+            this.btnExit.Location = new System.Drawing.Point(12, 298);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(61, 23);
             this.btnExit.TabIndex = 9;
@@ -160,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMappingsFile.Location = new System.Drawing.Point(116, 114);
             this.tbMappingsFile.Name = "tbMappingsFile";
-            this.tbMappingsFile.Size = new System.Drawing.Size(156, 20);
+            this.tbMappingsFile.Size = new System.Drawing.Size(534, 20);
             this.tbMappingsFile.TabIndex = 11;
             this.tbMappingsFile.Text = "C:\\MyProjects\\paradoxGameConvertersForks\\CK2ToEU4\\CK2ToEU4\\Data_Files\\configurabl" +
     "es\\provinces.txt";
@@ -169,16 +169,16 @@
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(12, 191);
+            this.progressBar1.Location = new System.Drawing.Point(12, 269);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(314, 23);
+            this.progressBar1.Size = new System.Drawing.Size(692, 23);
             this.progressBar1.TabIndex = 12;
             // 
             // lblStatus
             // 
             this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(79, 225);
+            this.lblStatus.Location = new System.Drawing.Point(79, 303);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(47, 13);
             this.lblStatus.TabIndex = 13;
@@ -223,7 +223,7 @@
             this.ckInvertSource.AutoSize = true;
             this.ckInvertSource.Checked = true;
             this.ckInvertSource.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckInvertSource.Location = new System.Drawing.Point(278, 11);
+            this.ckInvertSource.Location = new System.Drawing.Point(656, 11);
             this.ckInvertSource.Name = "ckInvertSource";
             this.ckInvertSource.Size = new System.Drawing.Size(53, 17);
             this.ckInvertSource.TabIndex = 17;
@@ -236,7 +236,7 @@
             this.ckInvertDest.AutoSize = true;
             this.ckInvertDest.Checked = true;
             this.ckInvertDest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckInvertDest.Location = new System.Drawing.Point(278, 37);
+            this.ckInvertDest.Location = new System.Drawing.Point(656, 37);
             this.ckInvertDest.Name = "ckInvertDest";
             this.ckInvertDest.Size = new System.Drawing.Size(53, 17);
             this.ckInvertDest.TabIndex = 18;
@@ -247,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 256);
+            this.ClientSize = new System.Drawing.Size(716, 334);
             this.Controls.Add(this.ckInvertDest);
             this.Controls.Add(this.ckInvertSource);
             this.Controls.Add(this.cbNamesFrom);
