@@ -8,14 +8,14 @@ build_script:
 
 artifacts:
 - path: bin/Release
-  name: autobuild
+  name: ProvinceMapper
 deploy:
 - provider: GitHub
-  release: autobuild
+  release: Automatic Release
   description: The most recent automatic build of the province mapper
   auth_token:
     secure: LBJzs4y9j0N5y0ajp7gmVk3Pvnec1UU5pTCdIMbQYUddEXQnWTJ79FXsd9SCs7YQ
   repository: ParadoxGameConverters/provinceMapper
-  artifact: autobuild
+  artifact: ProvinceMapper
   prerelease: true
   force_update: true
