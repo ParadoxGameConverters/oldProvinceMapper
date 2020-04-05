@@ -22,7 +22,8 @@ namespace ProvinceMapper
 		private SortedList<int, Province> srcChroma;
 		private SortedList<int, Province> destChroma;
 
-		private float scaleFactor = 1.0f;
+		private float scaleFactorSource = 1.0f;
+		private float scaleFactorDest = 1.0f;
 
 		private Dictionary<string, System.Windows.Forms.ListBox> lbMappingsDict;
 
@@ -41,7 +42,8 @@ namespace ProvinceMapper
 			}
 
 			// force rescale/redraw
-			cbZoom.SelectedIndex = 0;
+			cbZoomSource.SelectedIndex = 0;
+			cbZoomDest.SelectedIndex = 0;
 
 			// get the different mapping listings
 			lbMappingsDict = new Dictionary<string, System.Windows.Forms.ListBox>();
@@ -210,11 +212,11 @@ namespace ProvinceMapper
 
 		private void createSelPBs(bool force)
 		{
-			createSelPBs(force, srcSelection, oldSrcSelection, srcChroma.Values, pbSource);
-			createSelPBs(force, destSelection, oldDestSelection, destChroma.Values, pbTarget);
+			createSelPBs(force, srcSelection, oldSrcSelection, srcChroma.Values, pbSource, scaleFactorSource);
+			createSelPBs(force, destSelection, oldDestSelection, destChroma.Values, pbTarget, scaleFactorDest);
 		}
 
-		private void createSelPBs(bool force, List<Province> newSelection, List<Province> oldSelection, IList<Province> provinces, PictureBox pb)
+		private void createSelPBs(bool force, List<Province> newSelection, List<Province> oldSelection, IList<Province> provinces, PictureBox pb, float scaleFactor)
 		{
 			if (force || !newSelection.SequenceEqual(oldSelection))
 			{
@@ -335,10 +337,10 @@ namespace ProvinceMapper
 		{
 			if (srcSelection.Count > 0)
 			{
-				Rectangle srcFit = Program.ScaleRect(srcSelection[0].Rect, scaleFactor);
+				Rectangle srcFit = Program.ScaleRect(srcSelection[0].Rect, scaleFactorSource);
 				foreach (Province p in srcSelection)
 				{
-					srcFit = Rectangle.Union(srcFit, Program.ScaleRect(p.Rect, scaleFactor));
+					srcFit = Rectangle.Union(srcFit, Program.ScaleRect(p.Rect, scaleFactorSource));
 				}
 				Point fitCenter = new Point(srcFit.X + srcFit.Width / 2, srcFit.Y + srcFit.Height / 2);
 				Point panelCenter = new Point(HorizontalSplit.Panel1.Width / 2, HorizontalSplit.Panel1.Height / 2);
@@ -348,10 +350,10 @@ namespace ProvinceMapper
 
 			if (destSelection.Count > 0)
 			{
-				Rectangle destFit = Program.ScaleRect(destSelection[0].Rect, scaleFactor);
+				Rectangle destFit = Program.ScaleRect(destSelection[0].Rect, scaleFactorDest);
 				foreach (Province p in destSelection)
 				{
-					destFit = Rectangle.Union(destFit, Program.ScaleRect(p.Rect, scaleFactor));
+					destFit = Rectangle.Union(destFit, Program.ScaleRect(p.Rect, scaleFactorDest));
 				}
 				Point fitCenter = new Point(destFit.X + destFit.Width / 2, destFit.Y + destFit.Height / 2);
 				Point panelCenter = new Point(HorizontalSplit.Panel1.Width / 2, HorizontalSplit.Panel1.Height / 2);
@@ -425,12 +427,12 @@ namespace ProvinceMapper
 			showSelectedMapping();
 		}
 
-		private void cbZoom_SelectedIndexChanged(object sender, EventArgs e)
+		private void cbZoomSource_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			float oldScaleFactor = scaleFactor;
-			if (cbZoom.SelectedItem != null)
+			float oldScaleFactor = scaleFactorSource;
+			if (cbZoomSource.SelectedItem != null)
 			{
-				scaleFactor = float.Parse(cbZoom.SelectedItem.ToString().TrimEnd('x'));
+				scaleFactorSource = float.Parse(cbZoomSource.SelectedItem.ToString().TrimEnd('x'));
 			}
 			if (pbSource.BackgroundImage != null)
 			{
@@ -443,15 +445,26 @@ namespace ProvinceMapper
 
 			Point sourceScroll = HorizontalSplit.Panel1.AutoScrollPosition;
 			pbSource.BackgroundImage = bmpSrc = Program.CleanResizeBitmap(Program.sourceMap.map,
-				 (int)(Program.sourceMap.map.Width * scaleFactor), (int)(Program.sourceMap.map.Height * scaleFactor));
+				 (int)(Program.sourceMap.map.Width * scaleFactorSource), (int)(Program.sourceMap.map.Height * scaleFactorSource));
 			pbSource.Size = bmpSrc.Size;
 			pbSource.Image = new Bitmap(bmpSrc.Width, bmpSrc.Height);
 			Graphics g = Graphics.FromImage(pbSource.Image);
 			g.FillRectangle(Brushes.Transparent, new Rectangle(new Point(0, 0), bmpSrc.Size));
 			g.Flush();
-			sourceScroll.X = (int)((-sourceScroll.X * scaleFactor / oldScaleFactor) + (HorizontalSplit.Panel1.Width * scaleFactor / (2 * oldScaleFactor)) - (HorizontalSplit.Panel1.Width / 2));
-			sourceScroll.Y = (int)((-sourceScroll.Y * scaleFactor / oldScaleFactor) + (HorizontalSplit.Panel1.Height * scaleFactor / (2 * oldScaleFactor)) - (HorizontalSplit.Panel1.Height / 2));
+			sourceScroll.X = (int)((-sourceScroll.X * scaleFactorSource / oldScaleFactor) + (HorizontalSplit.Panel1.Width * scaleFactorSource / (2 * oldScaleFactor)) - (HorizontalSplit.Panel1.Width / 2));
+			sourceScroll.Y = (int)((-sourceScroll.Y * scaleFactorSource / oldScaleFactor) + (HorizontalSplit.Panel1.Height * scaleFactorSource / (2 * oldScaleFactor)) - (HorizontalSplit.Panel1.Height / 2));
 			HorizontalSplit.Panel1.AutoScrollPosition = sourceScroll;
+
+			createSelPBs(true, srcSelection, oldSrcSelection, srcChroma.Values, pbSource, scaleFactorSource);
+		}
+
+		private void cbZoomDest_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			float oldScaleFactor = scaleFactorDest;
+			if (cbZoomDest.SelectedItem != null)
+			{
+				scaleFactorDest = float.Parse(cbZoomDest.SelectedItem.ToString().TrimEnd('x'));
+			}
 
 			if (pbTarget.BackgroundImage != null)
 			{
@@ -464,17 +477,17 @@ namespace ProvinceMapper
 
 			Point destScroll = HorizontalSplit.Panel2.AutoScrollPosition;
 			pbTarget.BackgroundImage = bmpDest = Program.CleanResizeBitmap(Program.targetMap.map,
-				 (int)(Program.targetMap.map.Width * scaleFactor), (int)(Program.targetMap.map.Height * scaleFactor));
+				 (int)(Program.targetMap.map.Width * scaleFactorDest), (int)(Program.targetMap.map.Height * scaleFactorDest));
 			pbTarget.Size = bmpDest.Size;
 			pbTarget.Image = new Bitmap(bmpDest.Width, bmpDest.Height);
-			g = Graphics.FromImage(pbTarget.Image);
+			Graphics g = Graphics.FromImage(pbTarget.Image);
 			g.FillRectangle(Brushes.Transparent, new Rectangle(new Point(0, 0), bmpDest.Size));
 			g.Flush();
-			destScroll.X = (int)((-destScroll.X * scaleFactor / oldScaleFactor) + (HorizontalSplit.Panel2.Width * scaleFactor / (2 * oldScaleFactor)) - (HorizontalSplit.Panel2.Width / 2));
-			destScroll.Y = (int)((-destScroll.Y * scaleFactor / oldScaleFactor) + (HorizontalSplit.Panel2.Height * scaleFactor / (2 * oldScaleFactor)) - (HorizontalSplit.Panel2.Height / 2));
+			destScroll.X = (int)((-destScroll.X * scaleFactorDest / oldScaleFactor) + (HorizontalSplit.Panel2.Width * scaleFactorDest / (2 * oldScaleFactor)) - (HorizontalSplit.Panel2.Width / 2));
+			destScroll.Y = (int)((-destScroll.Y * scaleFactorDest / oldScaleFactor) + (HorizontalSplit.Panel2.Height * scaleFactorDest / (2 * oldScaleFactor)) - (HorizontalSplit.Panel2.Height / 2));
 			HorizontalSplit.Panel2.AutoScrollPosition = destScroll;
 
-			createSelPBs(true);
+			createSelPBs(true, destSelection, oldDestSelection, destChroma.Values, pbTarget, scaleFactorDest);
 		}
 
 
