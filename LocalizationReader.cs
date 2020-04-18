@@ -11,23 +11,36 @@ namespace ProvinceMapper
 		public LocalizationReader(string mapFolder, List<Province> provinceList, StatusUpdate su)
 		{
 			DirectoryInfo locFolder = new DirectoryInfo(Path.Combine(mapFolder, "..\\Localisation"));
-
-			// first, check for the new YML localization (EUIV)
-			FileInfo[] ymlFile = locFolder.GetFiles("prov_names_l_english.yml");
-			if (ymlFile.Count() == 1)
+			if (locFolder.Exists)
 			{
-				ReadYML(ymlFile[0], provinceList, su);
-				return;
+
+				// first, check for the new YML localization (EUIV)
+				FileInfo[] ymlFile = locFolder.GetFiles("prov_names_l_english.yml");
+				if (ymlFile.Count() == 1)
+				{
+					ReadYML(ymlFile[0], provinceList, su);
+					return;
+				}
+
+				// no relevant YML...read all the CSVs instead
+				FileInfo[] locFiles = locFolder.GetFiles("*.csv");
+				int fileIndex = 0;
+				double fileFactor = 1.0 / locFiles.Count();
+				foreach (FileInfo fi in locFiles)
+				{
+					ReadCSV(fi, provinceList, su, fileFactor, fileIndex);
+					++fileIndex;
+				}
 			}
-
-			// no relevant YML...read all the CSVs instead
-			FileInfo[] locFiles = locFolder.GetFiles("*.csv");
-			int fileIndex = 0;
-			double fileFactor = 1.0 / locFiles.Count();
-			foreach (FileInfo fi in locFiles)
+			else
 			{
-				ReadCSV(fi, provinceList, su, fileFactor, fileIndex);
-				++fileIndex;
+				locFolder = new DirectoryInfo(Path.Combine(mapFolder, "..\\localization\\english"));
+				FileInfo[] ymlFile = locFolder.GetFiles("provincenames_l_english.yml");
+				if (ymlFile.Count() == 1)
+				{
+					ReadYML(ymlFile[0], provinceList, su);
+					return;
+				}
 			}
 		}
 
