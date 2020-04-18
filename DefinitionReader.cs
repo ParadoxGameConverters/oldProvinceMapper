@@ -16,12 +16,21 @@ namespace ProvinceMapper
 			while (!reader.EndOfStream)
 			{
 				string province = reader.ReadLine();
+				if (province.StartsWith("#"))
+				{
+					continue;
+				}
+
 				string[] provinceTokens = province.Split(';');
 				if (provinceTokens.Length < 5)
 				{
 					continue;
 				}
 				if (IsRNWProvince(provinceTokens) || IsUnusedProvince(provinceTokens))
+				{
+					continue;
+				}
+				if ((provinceTokens[0].Length > 0) && (int.Parse(provinceTokens[0]) == 0))
 				{
 					continue;
 				}
