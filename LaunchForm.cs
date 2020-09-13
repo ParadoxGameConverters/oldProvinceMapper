@@ -180,14 +180,14 @@ namespace ProvinceMapper
 					byte* ptrOutput = (byte*)bitsOutput.Scan0 + y * bitsOutput.Stride;
 					for (int x = 0; x < outputMap.Width; x++)
 					{
-						ptrOutput[4 * x] = ptrInput[4 * x];           // blue
-						ptrOutput[4 * x + 1] = ptrInput[4 * x + 1];   // green
 						ptrOutput[4 * x + 2] = ptrInput[4 * x + 2];   // red
+						ptrOutput[4 * x + 1] = ptrInput[4 * x + 1];   // green
+						ptrOutput[4 * x] = ptrInput[4 * x];           // blue
 						ptrOutput[4 * x + 3] = ptrInput[4 * x + 3];      // alpha
 
-						if (ptrMask[4 * x] == 255 && ptrMask[4 * x + 2] == 0) // pixel on rivers map is blue
-						{
-							ptrOutput[4 * x + 3] = 0;        // make full transparent
+						if (!(ptrMask[4 * x + 2]==255 && ptrMask[4 * x + 1]==0 && ptrMask[4 * x]==128) && !(ptrMask[4 * x + 2]==122 && ptrMask[4 * x + 1]==122 && ptrMask[4 * x]==122) && !(ptrMask[4 * x + 2]==255 && ptrMask[4 * x + 1]==255 && ptrMask[4 * x]==255))
+						{ // pixel on rivers map is not pink, not grey, not white
+							ptrOutput[4 * x + 3] = 0;        // make the pixel on main map fully transparent
 						}
 					}
 				}
