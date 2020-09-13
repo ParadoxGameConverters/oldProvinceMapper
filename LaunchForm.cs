@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Imaging;
 
 namespace ProvinceMapper
 {
@@ -25,6 +26,7 @@ namespace ProvinceMapper
 			tbDestTag.Text = Properties.Settings.Default.destTag;
 			tbMappingsFile.Text = Properties.Settings.Default.mappingFile;
 			cbScale.Checked = Properties.Settings.Default.fitMaps;
+			cbRivers.Checked = Properties.Settings.Default.showRivers;
 			cbNamesFrom.SelectedItem = Properties.Settings.Default.namesFrom;
 			ckInvertSource.Checked = Properties.Settings.Default.invertSource;
 			ckInvertDest.Checked = Properties.Settings.Default.invertDest;
@@ -48,10 +50,23 @@ namespace ProvinceMapper
 			PushStatusUpdate(0.0);
 			Application.DoEvents();
 			string sourceMapPath = Path.Combine(tbSourceMapFolder.Text, "Provinces.bmp");
-			Bitmap srcMap = (Bitmap)Bitmap.FromFile(sourceMapPath);
+			Bitmap srcMapNoRivers = (Bitmap)Image.FromFile(sourceMapPath);
+			string sourceRiversMapPath = Path.Combine(tbSourceMapFolder.Text, "rivers.bmp");
+			Bitmap srcRiversMap = (Bitmap)Image.FromFile(sourceRiversMapPath);
+			Bitmap srcMap = new Bitmap(srcMapNoRivers.Width, srcMapNoRivers.Height, PixelFormat.Format32bppArgb);
+			// add the rivers to the source map 
+			if (cbRivers.Checked) AddRiversToMap(srcMap, srcMapNoRivers, srcRiversMap);
+			else srcMap = srcMapNoRivers;
 			PushStatusUpdate(33.0);
+
 			string targetMapPath = Path.Combine(tbDestMapFolder.Text, "Provinces.bmp");
-			Bitmap targetMap = (Bitmap)Bitmap.FromFile(targetMapPath);
+			Bitmap targetMapNoRivers = (Bitmap)Image.FromFile(targetMapPath);
+			string targetRiversMapPath = Path.Combine(tbDestMapFolder.Text, "rivers.bmp");
+			Bitmap targetRiversMap = (Bitmap)Image.FromFile(targetRiversMapPath);
+			Bitmap targetMap = new Bitmap(srcMapNoRivers.Width, srcMapNoRivers.Height, PixelFormat.Format32bppArgb);
+			// add the rivers to the target map 
+			if (cbRivers.Checked) AddRiversToMap(targetMap, targetMapNoRivers, targetRiversMap);
+			else targetMap = targetMapNoRivers;
 			PushStatusUpdate(67.0);
 			if (cbScale.Checked)
 			{
@@ -137,5 +152,35 @@ namespace ProvinceMapper
 				Application.DoEvents();
 			}
 		}
-	}
+
+		public void AddRiversToMap(Bitmap outputMap, Bitmap inputMap, Bitmap riversMap)
+        {
+			var rect = new Rectangle(0, 0, inputMap.Width, inputMap.Height);
+			var bitsMask = riversMap.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+			var bitsInput = inputMap.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+			var bitsOutput = outputMap.LockBits(rect, ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+			unsafe
+			{
+				for (int y = 0; y < outputMap.Height; y++)
+				{
+					byte* ptrMask = (byte*)bitsMask.Scan0 + y * bitsMask.Stride;
+					byte* ptrInput = (byte*)bitsInput.Scan0 + y * bitsInput.Stride;
+					byte* ptrOutput = (byte*)bitsOutput.Scan0 + y * bitsOutput.Stride;
+					for (int x = 0; x < outputMap.Width; x++)
+					{
+						ptrOutput[4 * x] = ptrInput[4 * x];           // blue
+						ptrOutput[4 * x + 1] = ptrInput[4 * x + 1];   // green
+						ptrOutput[4 * x + 2] = ptrInput[4 * x + 2];   // red
+						ptrOutput[4 * x + 3] = ptrInput[4 * x + 3];      // alpha
+
+						if (ptrMask[4 * x] == 255 && ptrMask[4 * x + 2] == 0) // pixel on rivers map is blue
+							ptrOutput[4 * x + 3] = 0;        // make full transparent
+					}
+				}
+			}
+			riversMap.UnlockBits(bitsMask);
+			inputMap.UnlockBits(bitsInput);
+			outputMap.UnlockBits(bitsOutput);
+		}
+    }
 }

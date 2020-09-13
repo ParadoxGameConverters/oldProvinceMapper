@@ -119,6 +119,21 @@ namespace ProvinceMapper.Properties
 
 		[global::System.Configuration.UserScopedSettingAttribute()]
 		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.DefaultSettingValueAttribute("False")]
+		public bool showRivers
+		{
+			get
+			{
+				return ((bool)(this["showRivers"]));
+			}
+			set
+			{
+				this["showRivers"] = value;
+			}
+		}
+
+		[global::System.Configuration.UserScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 		[global::System.Configuration.DefaultSettingValueAttribute("Localization")]
 		public string namesFrom
 		{
