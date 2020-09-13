@@ -55,8 +55,14 @@ namespace ProvinceMapper
 			Bitmap srcRiversMap = (Bitmap)Image.FromFile(sourceRiversMapPath);
 			Bitmap srcMap = new Bitmap(srcMapNoRivers.Width, srcMapNoRivers.Height, PixelFormat.Format32bppArgb);
 			// add the rivers to the source map 
-			if (cbRivers.Checked) AddRiversToMap(srcMap, srcMapNoRivers, srcRiversMap);
-			else srcMap = srcMapNoRivers;
+			if (cbRivers.Checked)
+			{
+				AddRiversToMap(srcMap, srcMapNoRivers, srcRiversMap);
+			}
+			else
+			{
+				srcMap = srcMapNoRivers;
+			}
 			PushStatusUpdate(33.0);
 
 			string targetMapPath = Path.Combine(tbDestMapFolder.Text, "Provinces.bmp");
@@ -65,8 +71,14 @@ namespace ProvinceMapper
 			Bitmap targetRiversMap = (Bitmap)Image.FromFile(targetRiversMapPath);
 			Bitmap targetMap = new Bitmap(srcMapNoRivers.Width, srcMapNoRivers.Height, PixelFormat.Format32bppArgb);
 			// add the rivers to the target map 
-			if (cbRivers.Checked) AddRiversToMap(targetMap, targetMapNoRivers, targetRiversMap);
-			else targetMap = targetMapNoRivers;
+			if (cbRivers.Checked)
+			{
+				AddRiversToMap(targetMap, targetMapNoRivers, targetRiversMap);
+			}
+			else
+			{
+				targetMap = targetMapNoRivers;
+			}
 			PushStatusUpdate(67.0);
 			if (cbScale.Checked)
 			{
@@ -174,7 +186,9 @@ namespace ProvinceMapper
 						ptrOutput[4 * x + 3] = ptrInput[4 * x + 3];      // alpha
 
 						if (ptrMask[4 * x] == 255 && ptrMask[4 * x + 2] == 0) // pixel on rivers map is blue
+						{
 							ptrOutput[4 * x + 3] = 0;        // make full transparent
+						}
 					}
 				}
 			}
