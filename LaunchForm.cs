@@ -69,7 +69,7 @@ namespace ProvinceMapper
 			Bitmap targetMapNoRivers = (Bitmap)Image.FromFile(targetMapPath);
 			string targetRiversMapPath = Path.Combine(tbDestMapFolder.Text, "rivers.bmp");
 			Bitmap targetRiversMap = (Bitmap)Image.FromFile(targetRiversMapPath);
-			Bitmap targetMap = new Bitmap(srcMapNoRivers.Width, srcMapNoRivers.Height, PixelFormat.Format32bppArgb);
+			Bitmap targetMap = new Bitmap(targetMapNoRivers.Width, targetMapNoRivers.Height, PixelFormat.Format32bppArgb);
 			// add the rivers to the target map 
 			if (cbRivers.Checked)
 			{
