@@ -168,33 +168,49 @@ namespace ProvinceMapper
 		public void AddRiversToMap(Bitmap outputMap, Bitmap inputMap, Bitmap riversMap)
         {
 			var rect = new Rectangle(0, 0, inputMap.Width, inputMap.Height);
-			var bitsMask = riversMap.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+			var bitsRiver = riversMap.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 			var bitsInput = inputMap.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 			var bitsOutput = outputMap.LockBits(rect, ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
 			unsafe
 			{
 				for (int y = 0; y < outputMap.Height; y++)
 				{
-					byte* ptrMask = (byte*)bitsMask.Scan0 + y * bitsMask.Stride;
-					byte* ptrInput = (byte*)bitsInput.Scan0 + y * bitsInput.Stride;
-					byte* ptrOutput = (byte*)bitsOutput.Scan0 + y * bitsOutput.Stride;
+					byte* lineRiver = (byte*)bitsRiver.Scan0 + y * bitsRiver.Stride;
+					byte* lineInput = (byte*)bitsInput.Scan0 + y * bitsInput.Stride;
+					byte* lineOutput = (byte*)bitsOutput.Scan0 + y * bitsOutput.Stride;
 					for (int x = 0; x < outputMap.Width; x++)
 					{
-						ptrOutput[4 * x + 2] = ptrInput[4 * x + 2];   // red
-						ptrOutput[4 * x + 1] = ptrInput[4 * x + 1];   // green
-						ptrOutput[4 * x] = ptrInput[4 * x];           // blue
-						ptrOutput[4 * x + 3] = ptrInput[4 * x + 3];      // alpha
+						lineOutput[4 * x + 2] = lineInput[4 * x + 2];   // red
+						lineOutput[4 * x + 1] = lineInput[4 * x + 1];   // green
+						lineOutput[4 * x] = lineInput[4 * x];           // blue
+						lineOutput[4 * x + 3] = lineInput[4 * x + 3];      // alpha
 
-						if (!(ptrMask[4 * x + 2]==255 && ptrMask[4 * x + 1]==0 && ptrMask[4 * x]==128) && !(ptrMask[4 * x + 2]==122 && ptrMask[4 * x + 1]==122 && ptrMask[4 * x]==122) && !(ptrMask[4 * x + 2]==255 && ptrMask[4 * x + 1]==255 && ptrMask[4 * x]==255))
+						if (!IsPink(lineRiver, x) && !IsGrey(lineRiver, x) && !IsWhite(lineRiver, x))
 						{ // pixel on rivers map is not pink, not grey, not white
-							ptrOutput[4 * x + 3] = 0;        // make the pixel on main map fully transparent
+							lineOutput[4 * x + 3] = 0;        // make the pixel on main map fully transparent
 						}
 					}
 				}
 			}
-			riversMap.UnlockBits(bitsMask);
+			riversMap.UnlockBits(bitsRiver);
 			inputMap.UnlockBits(bitsInput);
 			outputMap.UnlockBits(bitsOutput);
 		}
-    }
+
+		unsafe public bool IsPink(byte* lineRiver, int x)
+		{
+			if (lineRiver[4 * x + 2] == 255 && lineRiver[4 * x + 1] == 0 && lineRiver[4 * x] == 128) { return true; }
+            else { return false; }
+        }
+		unsafe public bool IsGrey(byte* lineRiver, int x)
+		{
+			if (lineRiver[4 * x + 2] == 122 && lineRiver[4 * x + 1] == 122 && lineRiver[4 * x] == 122) { return true; }
+			else { return false; }
+		}
+		unsafe public bool IsWhite(byte* lineRiver, int x)
+		{
+			if (lineRiver[4 * x + 2] == 255 && lineRiver[4 * x + 1] == 255 && lineRiver[4 * x] == 255) { return true; }
+			else { return false; }
+		}
+	}
 }
