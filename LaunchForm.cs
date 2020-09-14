@@ -68,10 +68,10 @@ namespace ProvinceMapper
 			PushStatusUpdate(33.0);
 
 			string targetMapPath = Path.Combine(tbDestMapFolder.Text, "provinces.bmp");
-			if (!System.IO.File.Exists(targetMapPath)) { targetMapPath = Path.Combine(tbDestMapFolder.Text, "provinces.png"); }
+            if (!File.Exists(targetMapPath)) { targetMapPath = Path.Combine(tbDestMapFolder.Text, "provinces.png"); }
 			Bitmap targetMapNoRivers = (Bitmap)Image.FromFile(targetMapPath);
 			string targetRiversMapPath = Path.Combine(tbDestMapFolder.Text, "rivers.bmp");
-			if (!System.IO.File.Exists(targetRiversMapPath)) { targetRiversMapPath = Path.Combine(tbDestMapFolder.Text, "rivers.png"); }
+            if (!File.Exists(targetRiversMapPath)) { targetRiversMapPath = Path.Combine(tbDestMapFolder.Text, "rivers.png"); }
 			Bitmap targetRiversMap = (Bitmap)Image.FromFile(targetRiversMapPath);
 			Bitmap targetMap = new Bitmap(targetMapNoRivers.Width, targetMapNoRivers.Height, PixelFormat.Format32bppArgb);
 			// add the rivers to the target map 
