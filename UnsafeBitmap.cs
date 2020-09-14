@@ -17,8 +17,8 @@ namespace ProvinceMapper
         Bitmap bitmap;
 
         int width;
-        BitmapData bitmapData = null;
-        Byte* pBase = null;
+        BitmapData bitmapData;
+        byte* pBase = null;
 
         public UnsafeBitmap(Bitmap bitmap)
         {
@@ -27,7 +27,7 @@ namespace ProvinceMapper
 
         public UnsafeBitmap(int width, int height)
         {
-            this.bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
+            bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
         }
 
         public Bitmap Bitmap

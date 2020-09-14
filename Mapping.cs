@@ -64,9 +64,13 @@ namespace ProvinceMapper
                                          return p.ID == provID;
                                      });
                                 if (prov == null)
+                                {
                                     throw new Exception(String.Format("Province \"{0}\" appears in a mapping, but not in game data!", prov.ToString()));
+                                }
                                 if (prov.mappings.ContainsKey(currentMapping))
+                                { 
                                     throw new Exception(String.Format("Province \"{0}\" appears in more than one mapping!", prov.ToString()));
+                                }
                                 prov.mappings.Add(currentMapping, this);
                                 srcProvs.Add(prov);
                                 break;
@@ -109,22 +113,23 @@ namespace ProvinceMapper
 
         public override string ToString()
         {
-            string comma = String.Empty;
-            string retval = String.Empty;
+            string comma = string.Empty;
+            System.Text.StringBuilder retvalBld = new System.Text.StringBuilder();
             foreach (Province p in srcProvs)
             {
-                retval += comma;
-                retval += p.name;
+                retvalBld.Append(comma);
+                retvalBld.Append(p.name);
                 comma = ", ";
             }
             comma = String.Empty;
-            retval += " -> ";
+            retvalBld.Append(" -> ");
             foreach (Province p in destProvs)
             {
-                retval += comma;
-                retval += p.name;
+                retvalBld.Append(comma);
+                retvalBld.Append(p.name);
                 comma = ", ";
             }
+            string retval = retvalBld.ToString();
             return retval;
         }
 

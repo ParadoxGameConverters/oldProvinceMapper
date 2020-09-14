@@ -282,8 +282,8 @@ namespace ProvinceMapper
             }
         }
 
-        private String newMappingItem = "-- <Create New Mapping> --";
-        private String newCommentItem = "-- <Create New Comment> --";
+        private readonly string newMappingItem = "-- <Create New Mapping> --";
+        private readonly string newCommentItem = "-- <Create New Comment> --";
         private bool skipSelPBRedraw = false;
         private void LbMappings_SelectedIndexChanged(object sender, EventArgs e)
         {
