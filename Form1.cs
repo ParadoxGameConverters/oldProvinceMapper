@@ -51,7 +51,7 @@ namespace ProvinceMapper
                 {
                     Dock = DockStyle.Fill
                 };
-                newListBox.SelectedIndexChanged += new EventHandler(LbMappings_SelectedIndexChanged);
+                newListBox.SelectedIndexChanged += LbMappings_SelectedIndexChanged;
 
                 newListBox.Items.AddRange(oneMapping.Value.ToArray());
                 newListBox.Items.Add(newMappingItem);
@@ -67,7 +67,7 @@ namespace ProvinceMapper
                 {
                     Dock = DockStyle.Fill
                 };
-                newListBox.SelectedIndexChanged += new EventHandler(LbMappings_SelectedIndexChanged);
+                newListBox.SelectedIndexChanged += LbMappings_SelectedIndexChanged;
 
                 newListBox.Items.Add(newMappingItem);
                 newListBox.Items.Add(newCommentItem);
