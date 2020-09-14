@@ -32,7 +32,7 @@ namespace ProvinceMapper
 			ckInvertDest.Checked = Properties.Settings.Default.invertDest;
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void Button1_Click(object sender, EventArgs e)
 		{
 			// read definitions and create province lists
 			lblStatus.Text = "Load Source Definitions";
@@ -145,7 +145,7 @@ namespace ProvinceMapper
 			Properties.Settings.Default.Save();
 		}
 
-		private void btnExit_Click(object sender, EventArgs e)
+		private void BtnExit_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}

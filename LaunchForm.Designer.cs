@@ -132,7 +132,7 @@
             this.btnBegin.TabIndex = 8;
             this.btnBegin.Text = "Begin";
             this.btnBegin.UseVisualStyleBackColor = true;
-            this.btnBegin.Click += new System.EventHandler(this.button1_Click);
+            this.btnBegin.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnExit
             // 
@@ -144,7 +144,7 @@
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // label5
             // 
