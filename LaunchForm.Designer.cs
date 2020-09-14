@@ -43,6 +43,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cbScale = new System.Windows.Forms.CheckBox();
+            this.cbRivers = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbNamesFrom = new System.Windows.Forms.ComboBox();
             this.ckInvertSource = new System.Windows.Forms.CheckBox();
@@ -196,6 +197,18 @@
             this.cbScale.Text = "Resize smaller map";
             this.cbScale.UseVisualStyleBackColor = true;
             // 
+            // cbRivers
+            // 
+            this.cbRivers.AutoSize = true;
+            this.cbRivers.Checked = true;
+            this.cbRivers.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbRivers.Location = new System.Drawing.Point(12, 185);
+            this.cbRivers.Name = "cbRivers";
+            this.cbRivers.Size = new System.Drawing.Size(81, 17);
+            this.cbRivers.TabIndex = 19;
+            this.cbRivers.Text = "Show rivers";
+            this.cbRivers.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -253,6 +266,7 @@
             this.Controls.Add(this.cbNamesFrom);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbScale);
+            this.Controls.Add(this.cbRivers);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.tbMappingsFile);
@@ -291,10 +305,11 @@
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.Label lblStatus;
 		private System.Windows.Forms.CheckBox cbScale;
-		private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox cbRivers;
+        private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox cbNamesFrom;
 		private System.Windows.Forms.CheckBox ckInvertSource;
 		private System.Windows.Forms.CheckBox ckInvertDest;
-	}
+    }
 }
 
