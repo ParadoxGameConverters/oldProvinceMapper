@@ -72,7 +72,7 @@ namespace ProvinceMapper
             }
         }
 
-        private Bitmap m_selmask = null;
+        private Bitmap m_selmask;
         public Bitmap SelectionMask
         {
             get
@@ -112,7 +112,7 @@ namespace ProvinceMapper
             }
         }
 
-        private Bitmap m_blackmask = null;
+        private Bitmap m_blackmask;
         public Bitmap BlackMask
         {
             get
