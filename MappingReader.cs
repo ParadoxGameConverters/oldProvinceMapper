@@ -13,7 +13,7 @@ namespace ProvinceMapper
         public string srcTag;
         public string destTag;
 
-        private string path;
+        private readonly string path;
         private List<string> initialLines;
 
         public MappingReader(string _path, string _srcTag, string _destTag)
