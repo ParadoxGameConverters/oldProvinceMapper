@@ -153,7 +153,7 @@
             this.tbSave.Name = "tbSave";
             this.tbSave.Size = new System.Drawing.Size(23, 22);
             this.tbSave.Text = "Save Mappings";
-            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
+            this.tbSave.Click += new System.EventHandler(this.TbSave_Click);
             // 
             // toolStripSeparator1
             // 
@@ -168,7 +168,7 @@
             this.tbMoveUp.Name = "tbMoveUp";
             this.tbMoveUp.Size = new System.Drawing.Size(23, 22);
             this.tbMoveUp.Text = "Move Up";
-            this.tbMoveUp.Click += new System.EventHandler(this.tbMoveUp_Click);
+            this.tbMoveUp.Click += new System.EventHandler(this.TbMoveUp_Click);
             // 
             // tbMoveDown
             // 
@@ -178,7 +178,7 @@
             this.tbMoveDown.Name = "tbMoveDown";
             this.tbMoveDown.Size = new System.Drawing.Size(23, 22);
             this.tbMoveDown.Text = "Move Down";
-            this.tbMoveDown.Click += new System.EventHandler(this.tbMoveDown_Click);
+            this.tbMoveDown.Click += new System.EventHandler(this.TbMoveDown_Click);
             // 
             // toolStripSeparator2
             // 
@@ -193,7 +193,7 @@
             this.tbSelection.Name = "tbSelection";
             this.tbSelection.Size = new System.Drawing.Size(23, 22);
             this.tbSelection.Text = "Selection Mode";
-            this.tbSelection.Click += new System.EventHandler(this.tbSelection_Click);
+            this.tbSelection.Click += new System.EventHandler(this.TbSelection_Click);
             // 
             // tbUnmapped
             // 
@@ -203,7 +203,7 @@
             this.tbUnmapped.Name = "tbUnmapped";
             this.tbUnmapped.Size = new System.Drawing.Size(23, 22);
             this.tbUnmapped.Text = "Show Unmapped";
-            this.tbUnmapped.Click += new System.EventHandler(this.tbUnmapped_Click);
+            this.tbUnmapped.Click += new System.EventHandler(this.TbUnmapped_Click);
             // 
             // tbFitSelection
             // 
@@ -213,7 +213,7 @@
             this.tbFitSelection.Name = "tbFitSelection";
             this.tbFitSelection.Size = new System.Drawing.Size(23, 22);
             this.tbFitSelection.Text = "Fit Selection";
-            this.tbFitSelection.Click += new System.EventHandler(this.tbFitSelection_Click);
+            this.tbFitSelection.Click += new System.EventHandler(this.TbFitSelection_Click);
             // 
             // toolStripSeparator3
             // 
@@ -234,7 +234,7 @@
             this.cbZoomSource.Name = "cbZoomSource";
             this.cbZoomSource.Size = new System.Drawing.Size(40, 23);
             this.cbZoomSource.ToolTipText = "Source Zoom Factor";
-            this.cbZoomSource.SelectedIndexChanged += new System.EventHandler(this.cbZoomSource_SelectedIndexChanged);
+            this.cbZoomSource.SelectedIndexChanged += new System.EventHandler(this.CbZoomSource_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -262,14 +262,14 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.saveToolStripMenuItem.Text = "&Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // createToolStripMenuItem
             // 
@@ -289,42 +289,42 @@
             this.createCommentsF2ToolStripMenuItem.Name = "createCommentsF2ToolStripMenuItem";
             this.createCommentsF2ToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.createCommentsF2ToolStripMenuItem.Text = "&Edit Comment (F2)";
-            this.createCommentsF2ToolStripMenuItem.Click += new System.EventHandler(this.createCommentsF2ToolStripMenuItem_Click);
+            this.createCommentsF2ToolStripMenuItem.Click += new System.EventHandler(this.CreateCommentsF2ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 22);
             this.toolStripMenuItem2.Text = "Create &Comment (F3)";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
             // 
             // createMappingF4ToolStripMenuItem
             // 
             this.createMappingF4ToolStripMenuItem.Name = "createMappingF4ToolStripMenuItem";
             this.createMappingF4ToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.createMappingF4ToolStripMenuItem.Text = "Create &Mapping (F4)";
-            this.createMappingF4ToolStripMenuItem.Click += new System.EventHandler(this.createMappingF4ToolStripMenuItem_Click);
+            this.createMappingF4ToolStripMenuItem.Click += new System.EventHandler(this.CreateMappingF4ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(188, 22);
             this.toolStripMenuItem3.Text = "&Delete (F5/Del)";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
             // 
             // moveUpToolStripMenuItem
             // 
             this.moveUpToolStripMenuItem.Name = "moveUpToolStripMenuItem";
             this.moveUpToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.moveUpToolStripMenuItem.Text = "Move &Up (+)";
-            this.moveUpToolStripMenuItem.Click += new System.EventHandler(this.moveUpToolStripMenuItem_Click);
+            this.moveUpToolStripMenuItem.Click += new System.EventHandler(this.MoveUpToolStripMenuItem_Click);
             // 
             // moveDownToolStripMenuItem
             // 
             this.moveDownToolStripMenuItem.Name = "moveDownToolStripMenuItem";
             this.moveDownToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.moveDownToolStripMenuItem.Text = "Move &Down (-)";
-            this.moveDownToolStripMenuItem.Click += new System.EventHandler(this.moveDownToolStripMenuItem_Click);
+            this.moveDownToolStripMenuItem.Click += new System.EventHandler(this.MoveDownToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -341,21 +341,21 @@
             this.selectedMappingToolStripMenuItem.Name = "selectedMappingToolStripMenuItem";
             this.selectedMappingToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.selectedMappingToolStripMenuItem.Text = "View &Selected Mapping";
-            this.selectedMappingToolStripMenuItem.Click += new System.EventHandler(this.selectedMappingToolStripMenuItem_Click);
+            this.selectedMappingToolStripMenuItem.Click += new System.EventHandler(this.SelectedMappingToolStripMenuItem_Click);
             // 
             // unmappedToolStripMenuItem
             // 
             this.unmappedToolStripMenuItem.Name = "unmappedToolStripMenuItem";
             this.unmappedToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.unmappedToolStripMenuItem.Text = "View &Unmapped";
-            this.unmappedToolStripMenuItem.Click += new System.EventHandler(this.unmappedToolStripMenuItem_Click);
+            this.unmappedToolStripMenuItem.Click += new System.EventHandler(this.UnmappedToolStripMenuItem_Click);
             // 
             // moveToSelectedToolStripMenuItem
             // 
             this.moveToSelectedToolStripMenuItem.Name = "moveToSelectedToolStripMenuItem";
             this.moveToSelectedToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.moveToSelectedToolStripMenuItem.Text = "&Move to Selected";
-            this.moveToSelectedToolStripMenuItem.Click += new System.EventHandler(this.moveToSelectedToolStripMenuItem_Click);
+            this.moveToSelectedToolStripMenuItem.Click += new System.EventHandler(this.MoveToSelectedToolStripMenuItem_Click);
             // 
             // HorizontalSplit
             // 
@@ -385,9 +385,9 @@
             this.pbSource.Size = new System.Drawing.Size(100, 50);
             this.pbSource.TabIndex = 0;
             this.pbSource.TabStop = false;
-            this.pbSource.MouseLeave += new System.EventHandler(this.pbSource_MouseLeave);
-            this.pbSource.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbSource_MouseMove);
-            this.pbSource.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbSource_MouseUp);
+            this.pbSource.MouseLeave += new System.EventHandler(this.PbSource_MouseLeave);
+            this.pbSource.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PbSource_MouseMove);
+            this.pbSource.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PbSource_MouseUp);
             // 
             // pbTarget
             // 
@@ -397,9 +397,9 @@
             this.pbTarget.Size = new System.Drawing.Size(100, 50);
             this.pbTarget.TabIndex = 1;
             this.pbTarget.TabStop = false;
-            this.pbTarget.MouseLeave += new System.EventHandler(this.pbTarget_MouseLeave);
-            this.pbTarget.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbTarget_MouseMove);
-            this.pbTarget.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbTarget_MouseUp);
+            this.pbTarget.MouseLeave += new System.EventHandler(this.PbTarget_MouseLeave);
+            this.pbTarget.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PbTarget_MouseMove);
+            this.pbTarget.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PbTarget_MouseUp);
             // 
             // toolTip1
             // 
@@ -424,7 +424,7 @@
             this.cbZoomDest.Name = "cbZoomDest";
             this.cbZoomDest.Size = new System.Drawing.Size(40, 23);
             this.cbZoomDest.ToolTipText = "Destination Zoom Factor";
-            this.cbZoomDest.SelectedIndexChanged += new System.EventHandler(this.cbZoomDest_SelectedIndexChanged);
+            this.cbZoomDest.SelectedIndexChanged += new System.EventHandler(this.CbZoomDest_SelectedIndexChanged);
             // 
             // Form1
             // 
