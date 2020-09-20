@@ -51,6 +51,9 @@ namespace ProvinceMapper
                 {
                     Dock = DockStyle.Fill
                 };
+                newListBox.DrawMode = DrawMode.OwnerDrawFixed;
+                newListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(MappingsListBox_DrawItem);
+
                 newListBox.SelectedIndexChanged += LbMappings_SelectedIndexChanged;
 
                 newListBox.Items.AddRange(oneMapping.Value.ToArray());
@@ -617,6 +620,55 @@ namespace ProvinceMapper
         private void MoveToSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MoveToSelected();
+        }
+
+        private void MappingsListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            ListBox lbSender = (ListBox)sender;
+            if (e.Index < 0) return;
+
+            //if the item state is selected them change the back color 
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                if (lbSender.Items[e.Index].ToString()[0] == '#') // is a comment
+                {
+                    e = new DrawItemEventArgs(e.Graphics,
+                                      e.Font,
+                                      e.Bounds,
+                                      e.Index,
+                                      e.State ^ DrawItemState.Selected,
+                                      e.ForeColor,
+                                      Color.Yellow);
+                }
+                else
+                {
+                    e = new DrawItemEventArgs(e.Graphics,
+                                     e.Font,
+                                     e.Bounds,
+                                     e.Index,
+                                     e.State ^ DrawItemState.Selected,
+                                     e.ForeColor,
+                                     Color.LightBlue);
+                }
+            }
+            // if item is a comment, highlight it!
+            else if (lbSender.Items[e.Index].ToString()[0] == '#')
+            {
+                e = new DrawItemEventArgs(e.Graphics,
+                                      e.Font,
+                                      e.Bounds,
+                                      e.Index,
+                                      e.State,
+                                      e.ForeColor,
+                                      Color.YellowGreen);
+            }
+
+            // Draw the background of the ListBox control for each item.
+            e.DrawBackground();
+            // Draw the current item text
+            e.Graphics.DrawString(lbSender.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            // If the ListBox has focus, draw a focus rectangle around the selected item.
+            e.DrawFocusRectangle();
         }
     }
 }
