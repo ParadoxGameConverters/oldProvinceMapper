@@ -627,7 +627,7 @@ namespace ProvinceMapper
             ListBox lbSender = (ListBox)sender;
             if (e.Index < 0) return;
 
-            //if the item state is selected them change the back color 
+            //if the item state is selected, change the back color 
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
             {
                 if (lbSender.Items[e.Index].ToString()[0] == '#') // is a comment
@@ -651,7 +651,7 @@ namespace ProvinceMapper
                                      Color.LightBlue);
                 }
             }
-            // if item is a comment, highlight it!
+            // if the item is a comment, highlight it!
             else if (lbSender.Items[e.Index].ToString()[0] == '#')
             {
                 e = new DrawItemEventArgs(e.Graphics,
