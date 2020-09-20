@@ -625,7 +625,10 @@ namespace ProvinceMapper
         private void MappingsListBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             ListBox lbSender = (ListBox)sender;
-            if (e.Index < 0) return;
+            if (e.Index < 0)
+            {
+                return;
+            }
 
             //if the item state is selected, change the back color 
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
